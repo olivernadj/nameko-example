@@ -3,9 +3,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-depl
+  namespace: nameko
   labels:
     app: hello-app
-    revision: "6"
   annotations:
     fluxcd.io/automated: "true"
     fluxcd.io/tag.hello-app: semver:*
@@ -20,7 +20,7 @@ spec:
         app: hello-app
     spec:
       containers:
-      - image: olivernadj/nameko-example-hello:0.0.4
+      - image: olivernadj/nameko-example-hello:0.0.2
         name: hello
         env:
         - name: RABBIT_HOST
