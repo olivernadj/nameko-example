@@ -7,3 +7,7 @@ class GreetingService:
     @rpc
     def hello(self, name):
         return "Hello, {}!".format(name)
+
+    @rpc
+    def version(self):
+        return "0.0.1"

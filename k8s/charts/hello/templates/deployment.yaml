@@ -6,6 +6,9 @@ metadata:
     app: {{ .Chart.Name }}-app
     tag: {{ .Values.image.tag }}
     revision: "{{ .Release.Revision }}"
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.podinfod: semver:*
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -17,7 +20,7 @@ spec:
         app: {{ .Chart.Name }}-app
     spec:
       containers:
-      - image: olivernadj/nameko-example-hello:latest
+      - image: olivernadj/nameko-example-hello:0.0.1
         name: {{ .Chart.Name }}
         env:
           - name: RABBIT_HOST
