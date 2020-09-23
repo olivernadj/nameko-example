@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -22,17 +23,17 @@ spec:
       - image: olivernadj/nameko-example-hello:0.0.2
         name: hello
         env:
-          - name: RABBIT_HOST
-            value: broker-rabbitmq
-          - name: RABBIT_MANAGEMENT_PORT
-            value: "15672"
-          - name: RABBIT_PORT
-            value: "5672"
-          - name: RABBIT_USER
-            value: user
-          - name: RABBIT_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: broker-rabbitmq
-                key: rabbitmq-password
+        - name: RABBIT_HOST
+          value: broker-rabbitmq
+        - name: RABBIT_MANAGEMENT_PORT
+          value: "15672"
+        - name: RABBIT_PORT
+          value: "5672"
+        - name: RABBIT_USER
+          value: user
+        - name: RABBIT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: broker-rabbitmq
+              key: rabbitmq-password
       restartPolicy: Always
