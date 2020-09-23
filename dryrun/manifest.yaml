@@ -20,7 +20,7 @@ spec:
         app: hello-app
     spec:
       containers:
-      - image: olivernadj/nameko-example-hello:0.0.2
+      - image: olivernadj/nameko-example-hello:0.0.5
         name: hello
         env:
         - name: RABBIT_HOST
