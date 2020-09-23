@@ -4,11 +4,10 @@ metadata:
   name: {{ .Chart.Name }}-depl
   labels:
     app: {{ .Chart.Name }}-app
-    tag: {{ .Values.image.tag }}
     revision: "{{ .Release.Revision }}"
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.podinfod: semver:*
+    fluxcd.io/tag.{{ .Chart.Name }}-app: semver:*
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:

@@ -17,9 +17,11 @@ export GHUSER="olivernadj"
 fluxctl install \
 --git-user=${GHUSER} \
 --git-email=${GHUSER}@users.noreply.github.com \
---git-url=git@github.com:${GHUSER}/nameko-example/ \
---git-path=k8s/chatrs/hello \
+--git-url=git@github.com:${GHUSER}/nameko-example.git \
+--git-path=k8s \
 --namespace=flux | kubectl apply -f - 
+
+kubectl -n flux rollout status deployment/flux
 ```
 
 
