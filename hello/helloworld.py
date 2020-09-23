@@ -10,4 +10,4 @@ class GreetingService:
 
     @rpc
     def version(self):
-        return "0.0.2"
+        return "0.0.4"

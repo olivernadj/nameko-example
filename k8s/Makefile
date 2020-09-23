@@ -1,4 +1,4 @@
-CONTEXT ?= sanyi
+CONTEXT ?= do
 NAMESPACE ?= nameko
 TAG ?= latest
 

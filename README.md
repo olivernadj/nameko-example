@@ -18,12 +18,18 @@ fluxctl install \
 --git-user=${GHUSER} \
 --git-email=${GHUSER}@users.noreply.github.com \
 --git-url=git@github.com:${GHUSER}/nameko-example.git \
---git-path=dryrun \
+--git-path=k8s \
 --namespace=flux | kubectl apply -f - 
 
 kubectl -n flux rollout status deployment/flux
 ```
 
+troubleshooting 
+https://github.com/fluxcd/flux/issues/2517
+```
+- --registry-exclude-image=*
+- --registry-include-image=docker.io/olivernadj/*
+```
 
 ### add deploy keys
 
