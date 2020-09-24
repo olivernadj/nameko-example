@@ -5,8 +5,9 @@
  - [x] put it into docker image
  - [x] deploy them to kubernetes via helm
  - [ ] ~~upgrade them with fluxcd~~ i could not make automated policy works with unpacked helm chats.
+   - [x] double check.
    - [x] check what happen if I add fluxcd.io via kubectl edit instead of having tha in the manifest in git repo
- - [ ] use HelmRelease Custom Resource insted unpacked charts.
+ - [ ] use HelmRelease Custom Resource instead unpacked charts.
  
 
 
@@ -28,6 +29,9 @@ That was unexpected. It means flux is threats git repo as a source of truth and 
 As I expected flux indeed replace the image with a newest tag and also push back the new tag into git repo.
 
 
+### Unpacked helm charts
+Unpacked helm charts are pretty much ignored, by fluxcd.
+
  
 ### fluxctl install 
  
@@ -37,7 +41,7 @@ fluxctl install \
 --git-user=${GHUSER} \
 --git-email=${GHUSER}@users.noreply.github.com \
 --git-url=git@github.com:${GHUSER}/nameko-example.git \
---git-path=k8s \
+--git-path=release \
 --namespace=flux | kubectl apply -f - 
 
 kubectl -n flux rollout status deployment/flux

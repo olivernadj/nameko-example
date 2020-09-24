@@ -1,2 +1,3 @@
 replicaCount: 1
-
+image: olivernadj/nameko-example-hello:latest
+PullPolicy: IfNotPresent

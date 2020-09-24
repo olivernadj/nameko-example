@@ -1,0 +1,17 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: hello-helm-release
+  namespace: nameko
+  annotations:
+    fluxcd.io/automated: "true"
+    filter.fluxcd.io/chart-image: semver:*
+spec:
+  releaseName: hello-helm-release
+  chart:
+    git: git@github.com:olivernadj/nameko-example
+    path: k8s/charts/hello
+    ref: master
+  values:
+    replicas: 1
+    image: olivernadj/nameko-example-hello:0.0.1
