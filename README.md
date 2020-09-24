@@ -4,8 +4,9 @@
  - [x] nameko hello world
  - [x] put it into docker image
  - [x] deploy them to kubernetes via helm
- - [ ] upgrade them with fluxcd
- 
+ - [ ] ~~upgrade them with fluxcd~~ i could not make automated policy works with unpacked helm chats.
+   - [ ] check what happen if I add fluxcd.io via kubectl edit instead of having tha in the manifest in git repo
+ - [ ] use HelmRelease Custom Resource insted unpacked charts.
  
  
  
