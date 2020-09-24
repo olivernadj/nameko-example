@@ -1,4 +1,4 @@
-# nameko-example
+# Nameko example with fluxcd and HelmRelease
 
 ## todos
  - [x] nameko hello world
