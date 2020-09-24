@@ -6,9 +6,9 @@ metadata:
   namespace: nameko
   labels:
     app: hello-app
-#  annotations:
-#    fluxcd.io/automated: "true"
-#    fluxcd.io/tag.hello-app: semver:*
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.hello-app: semver:*
 spec:
   replicas: 1
   selector:

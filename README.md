@@ -8,7 +8,22 @@
    - [ ] check what happen if I add fluxcd.io via kubectl edit instead of having tha in the manifest in git repo
  - [ ] use HelmRelease Custom Resource insted unpacked charts.
  
- 
+
+
+## Observations
+
+### fluxcd.io annotations
+Workload policy loose automation, when I commented out fluxcd.io manifestation. It was expected.
+```
+#  annotations:
+#    fluxcd.io/automated: "true"
+#    fluxcd.io/tag.hello-app: semver:*
+```
+![workloads](https://raw.githubusercontent.com/olivernadj/nameko-example/master/lost-automation "Workload with and without annotation")
+
+Although editing `kubectl edit deployment hello-depl` and add back fluxcd.io annotations has no effect. 
+That was unexpected. It means flux is threats git repo as a source of truth and does not scan actual deployment instances. 
+
  
  
 ### fluxctl install 
