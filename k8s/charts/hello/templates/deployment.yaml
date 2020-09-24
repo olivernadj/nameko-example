@@ -20,7 +20,7 @@ spec:
         app: {{ .Chart.Name }}-app
     spec:
       containers:
-      - image: olivernadj/nameko-example-hello:0.0.6
+      - image: olivernadj/nameko-example-hello:0.0.7
         name: {{ .Chart.Name }}
         env:
         - name: RABBIT_HOST
