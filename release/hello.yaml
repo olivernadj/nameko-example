@@ -1,3 +1,4 @@
+---
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
@@ -14,4 +15,4 @@ spec:
     ref: master
   values:
     replicas: 1
-    image: olivernadj/nameko-example-hello:0.0.1
+    image: olivernadj/nameko-example-hello:0.0.7
