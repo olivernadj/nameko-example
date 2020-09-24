@@ -5,7 +5,7 @@
  - [x] put it into docker image
  - [x] deploy them to kubernetes via helm
  - [ ] ~~upgrade them with fluxcd~~ i could not make automated policy works with unpacked helm chats.
-   - [ ] check what happen if I add fluxcd.io via kubectl edit instead of having tha in the manifest in git repo
+   - [x] check what happen if I add fluxcd.io via kubectl edit instead of having tha in the manifest in git repo
  - [ ] use HelmRelease Custom Resource insted unpacked charts.
  
 
@@ -19,12 +19,15 @@ Workload policy loose automation, when I commented out fluxcd.io manifestation. 
 #    fluxcd.io/automated: "true"
 #    fluxcd.io/tag.hello-app: semver:*
 ```
-![workloads](https://raw.githubusercontent.com/olivernadj/nameko-example/master/lost-automation "Workload with and without annotation")
+![workloads](https://raw.githubusercontent.com/olivernadj/nameko-example/master/lost-automation.png "Workload with and without annotation")
 
 Although editing `kubectl edit deployment hello-depl` and add back fluxcd.io annotations has no effect. 
 That was unexpected. It means flux is threats git repo as a source of truth and does not scan actual deployment instances. 
 
- 
+### POLICY automated
+As I expected flux indeed replace the image with a newest tag and also push back the new tag into git repo.
+
+
  
 ### fluxctl install 
  

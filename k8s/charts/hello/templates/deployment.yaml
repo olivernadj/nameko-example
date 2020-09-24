@@ -20,20 +20,20 @@ spec:
         app: {{ .Chart.Name }}-app
     spec:
       containers:
-      - image: olivernadj/nameko-example-hello:0.0.2
+      - image: olivernadj/nameko-example-hello:0.0.6
         name: {{ .Chart.Name }}
         env:
-          - name: RABBIT_HOST
-            value: broker-rabbitmq
-          - name: RABBIT_MANAGEMENT_PORT
-            value: "15672"
-          - name: RABBIT_PORT
-            value: "5672"
-          - name: RABBIT_USER
-            value: user
-          - name: RABBIT_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: broker-rabbitmq
-                key: rabbitmq-password
+        - name: RABBIT_HOST
+          value: broker-rabbitmq
+        - name: RABBIT_MANAGEMENT_PORT
+          value: "15672"
+        - name: RABBIT_PORT
+          value: "5672"
+        - name: RABBIT_USER
+          value: user
+        - name: RABBIT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: broker-rabbitmq
+              key: rabbitmq-password
       restartPolicy: Always
